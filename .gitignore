@@ -13,6 +13,7 @@ dist-ssr
 *.local
 .env
 !dist/_redirects
+!dist/index.html
 
 # Editor directories and files
 .vscode/*
