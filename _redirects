@@ -2,4 +2,4 @@
   /* /index.html 200
 
 # Redirige las rutas de la API a tu backend
-  /user/*  https://tu-backend-api-url.netlify.app/:splat  200
+  /user/*  https://talentalkeapi.netlify.app/:splat  200
