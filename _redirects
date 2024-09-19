@@ -1,1 +1,5 @@
-/* /index.html 200
+# Redirige todas las rutas no API a index.html (SPA)
+  /* /index.html 200
+
+# Redirige las rutas de la API a tu backend
+  /api/*  https://tu-backend-api-url.netlify.app/:splat  200
