@@ -4,7 +4,7 @@ export default function (app) {
     app.use(
         '/user',
         createProxyMiddleware({
-            target: 'https://talentalkeapi.netlify.app/.netlify/functions/user',
+            target: 'https://talentalkeapi.netlify.app/.netlify/functions',
             changeOrigin: true,
         })
     );
