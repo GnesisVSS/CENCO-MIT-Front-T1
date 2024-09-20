@@ -20,7 +20,7 @@ function Login() {
   const [severity, setSeverity] = useState<AlertColor>("error");
 
   const dispatch = useDispatch<AppDispatch>();
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -32,16 +32,16 @@ function Login() {
     try {
       const actionResult = await dispatch(loginUser({ email, password }));
       setShowAlert(true);
-  
+
       if (loginUser.fulfilled.match(actionResult)) {
         setSeverity('success');
         const role = actionResult.payload.role;
-  
+
         await dispatch(fetchUserProfile());
-  
+
         setTimeout(() => {
-          navigate(role === Role.ADMIN ? '/dashboard/all-users' : '/dashboard/profile'); 
-        }, 1000); 
+          navigate(role === Role.ADMIN ? '/dashboard/all-users' : '/dashboard/profile');
+        }, 1000);
       } else {
         setSeverity('error');
       }
@@ -65,6 +65,15 @@ function Login() {
         <div className={styles.formContainer}>
           <span className={`${styles.textCenter} ${styles.title}`} >Hola, bienvenido a AlkeTalent</span>
           <span className={`${styles.textCenter} ${styles.subtitle}`}>Ingrese sus datos para iniciar sesión en su cuenta</span>
+          <CustomAlert severity="info" text={
+            <>
+              Dejo las credenciales del usuario de tipo admin para asi no alterar la funcionalidad del proyecto desarrollado para la capacitación con Alkemy:
+              <br />
+              <strong>Email:</strong> admin@admin.cl
+              <br />
+              <strong>Password:</strong> Password
+            </>
+          } />
           <Box
             component="form"
             sx={{
@@ -81,6 +90,7 @@ function Login() {
                 id="outlined-required"
                 label="Email"
                 value={email}
+
                 onChange={(e) => setEmail(e.target.value)}
               />
               <FormControl variant="outlined" required fullWidth>
