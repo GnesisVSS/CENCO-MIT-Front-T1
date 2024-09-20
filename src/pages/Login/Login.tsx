@@ -11,6 +11,7 @@ import { CustomAlert } from '../../components/CustomAlert';
 import imgLogin from '../../assets/img/imgLogin.jfif';
 import logo from '../../assets/img/Logo.png';
 import { Role } from '../../interfaces/User';
+import { AlertCredentials } from '../../components/AlertCredentials';
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
@@ -65,15 +66,19 @@ function Login() {
         <div className={styles.formContainer}>
           <span className={`${styles.textCenter} ${styles.title}`} >Hola, bienvenido a AlkeTalent</span>
           <span className={`${styles.textCenter} ${styles.subtitle}`}>Ingrese sus datos para iniciar sesión en su cuenta</span>
-          <CustomAlert severity="info" text={
-            <>
-              Dejo las credenciales del usuario de tipo admin para asi no alterar la funcionalidad del proyecto desarrollado para la capacitación con Alkemy:
-              <br />
-              <strong>Email:</strong> admin@admin.cl
-              <br />
-              <strong>Password:</strong> Password
-            </>
-          } />
+          <AlertCredentials
+            severity="info"
+            text={
+              <>
+                Al encontrarse esta aplicación publicada en mi portafolio, dejo las credenciales del usuario de tipo admin para su uso:
+                <br />
+                <strong>Email:</strong> admin@admin.cl
+                <br />
+                <strong>Password:</strong> Password
+              </>
+            }
+          />
+
           <Box
             component="form"
             sx={{
